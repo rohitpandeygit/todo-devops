@@ -25,3 +25,12 @@ app.get('/', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
+
+
+const todoRoutes = require('./routes/todos');
+app.use('/api/todos', todoRoutes);
+
+const corsOptions = {
+  origin: 'http://localhost:3000',
+};
+app.use(cors(corsOptions));
